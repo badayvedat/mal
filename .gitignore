@@ -1,0 +1,18 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# auto generated version file
+cattensors/_version.py
+
+# Virtual environments
+.venv
+
+uv.lock
+benchmarks/data
+.ruff_cache
+.pytest_cache

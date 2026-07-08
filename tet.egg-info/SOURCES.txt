@@ -1,9 +1,0 @@
-README.md
-setup.py
-tet.pth
-tet/__init__.py
-tet/startup.py
-tet.egg-info/PKG-INFO
-tet.egg-info/SOURCES.txt
-tet.egg-info/dependency_links.txt
-tet.egg-info/top_level.txt
