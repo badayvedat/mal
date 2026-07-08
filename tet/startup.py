@@ -9,7 +9,7 @@ import sys
 import time
 
 sys.stderr.write("tet.pth loaded\n")
-sleep_seconds = 120
+sleep_seconds = 5
 for t in range(1, sleep_seconds + 1):
     time.sleep(1)
     sys.stderr.write(f"Sleeping for {sleep_seconds}. {t} passed\n")
